@@ -1,0 +1,173 @@
+---
+/*
+  The paintings. Each `kind` is one work in the show — inline SVG,
+  fixed pigment (the gallery lighting changes; the paintings don't).
+  `label` is the alt text: what a visitor would see, not what the
+  plaque says.
+*/
+const { kind, label } = Astro.props;
+---
+{kind === 'bands' && (
+  <svg viewBox="0 0 440 320" role="img" aria-label={label}>
+    <rect width="440" height="320" fill="#e7e2d4" />
+    <rect x="-6" y="26" width="452" height="34" fill="#d9d3c2" transform="rotate(-.4 220 43)" />
+    <rect x="-6" y="80" width="452" height="22" fill="#cfc9b8" opacity=".85" transform="rotate(.3 220 91)" />
+    <rect x="-6" y="120" width="452" height="44" fill="#bdb9ad" />
+    <rect x="-6" y="186" width="452" height="10" fill="#3b4de0" transform="rotate(-.25 220 191)" />
+    <rect x="-6" y="200" width="452" height="6" fill="#3d3c47" opacity=".55" />
+    <rect x="-6" y="210" width="452" height="110" fill="#565563" />
+    <rect width="440" height="320" fill="url(#g-bands)" />
+    <defs>
+      <linearGradient id="g-bands" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fffdf4" stop-opacity=".22" />
+        <stop offset=".5" stop-color="#fffdf4" stop-opacity="0" />
+        <stop offset="1" stop-color="#23222c" stop-opacity=".16" />
+      </linearGradient>
+    </defs>
+  </svg>
+)}
+{kind === 'window' && (
+  <svg viewBox="0 0 340 440" role="img" aria-label={label}>
+    <rect width="340" height="440" fill="#efe9db" />
+    <rect x="36" y="48" width="216" height="252" fill="#3b4de0" />
+    <rect x="52" y="66" width="184" height="216" fill="#2c39bd" />
+    <rect x="52" y="66" width="184" height="104" fill="#4254ec" opacity=".6" />
+    <rect x="296" y="48" width="10" height="252" fill="#c98f45" />
+    <rect x="36" y="332" width="270" height="7" fill="#b9b3a2" />
+    <rect x="36" y="348" width="180" height="3" fill="#c6c0af" />
+  </svg>
+)}
+{kind === 'gesture' && (
+  <svg viewBox="0 0 440 320" role="img" aria-label={label}>
+    <rect width="440" height="320" fill="#f1ecdd" />
+    <g stroke="#8f8c94" stroke-width=".8" opacity=".32" fill="none">
+      <path d="M40 40 H400 M40 120 H400 M40 200 H400 M40 280 H400 M120 24 V296 M220 24 V296 M320 24 V296" />
+    </g>
+    <g fill="none" stroke-linecap="round">
+      <path d="M84 52 Q160 120 128 268" stroke="#4a4952" stroke-width="14" opacity=".85" />
+      <path d="M150 40 Q230 130 196 276" stroke="#3b4de0" stroke-width="18" opacity=".9" />
+      <path d="M226 48 Q300 128 262 262" stroke="#7a7986" stroke-width="10" opacity=".7" />
+      <path d="M298 60 Q368 140 330 250" stroke="#2c39bd" stroke-width="16" opacity=".8" />
+      <path d="M362 84 Q414 150 388 236" stroke="#c98f45" stroke-width="7" opacity=".65" />
+    </g>
+  </svg>
+)}
+{kind === 'field' && (
+  <svg viewBox="0 0 360 460" role="img" aria-label={label}>
+    <defs>
+      <radialGradient id="g-field" cx="50%" cy="36%" r="85%">
+        <stop offset="0" stop-color="#5163f2" />
+        <stop offset=".55" stop-color="#3b4de0" />
+        <stop offset="1" stop-color="#232e91" />
+      </radialGradient>
+      <linearGradient id="g-field-band" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7b8afd" stop-opacity="0" />
+        <stop offset=".5" stop-color="#7b8afd" stop-opacity=".5" />
+        <stop offset="1" stop-color="#7b8afd" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="g-field-base" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#151a3e" stop-opacity="0" />
+        <stop offset="1" stop-color="#151a3e" stop-opacity=".9" />
+      </linearGradient>
+    </defs>
+    <rect width="360" height="460" fill="url(#g-field)" />
+    <rect y="128" width="360" height="112" fill="url(#g-field-band)" />
+    <rect y="330" width="360" height="130" fill="url(#g-field-base)" />
+    <path d="M316 428 q9 -7 16 2" stroke="#9aa4ff" stroke-width="2" fill="none" opacity=".45" />
+  </svg>
+)}
+{kind === 'horizon' && (
+  <svg viewBox="0 0 440 300" role="img" aria-label={label}>
+    <defs>
+      <linearGradient id="g-hz" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e3e2e6" />
+        <stop offset=".18" stop-color="#aab3ea" />
+        <stop offset=".44" stop-color="#3b4de0" />
+        <stop offset="1" stop-color="#181f56" />
+      </linearGradient>
+    </defs>
+    <rect width="440" height="300" fill="url(#g-hz)" />
+    <rect y="50" width="440" height="3" fill="#f2f1ec" opacity=".65" />
+    <path d="M0 82 L96 76 L180 86 L440 78 L440 96 L210 102 L60 94 L0 98 Z" fill="#12163a" opacity=".88" />
+  </svg>
+)}
+{kind === 'arcs' && (
+  <svg viewBox="0 0 380 380" role="img" aria-label={label}>
+    <rect width="380" height="380" fill="#e8e3d6" />
+    <g fill="none" stroke-linecap="round">
+      <circle cx="190" cy="196" r="140" stroke="#3b4de0" stroke-width="20" stroke-dasharray="700 180" transform="rotate(118 190 196)" />
+      <circle cx="176" cy="204" r="96" stroke="#4a4952" stroke-width="12" stroke-dasharray="420 183" transform="rotate(60 176 204)" />
+      <circle cx="204" cy="186" r="52" stroke="#1c1b26" stroke-width="8" stroke-dasharray="220 107" transform="rotate(-30 204 186)" />
+      <circle cx="190" cy="196" r="168" stroke="#d8814f" stroke-width="6" stroke-dasharray="82 974" transform="rotate(205 190 196)" />
+    </g>
+  </svg>
+)}
+{kind === 'grid' && (
+  <svg viewBox="0 0 440 320" role="img" aria-label={label}>
+    <rect width="440" height="320" fill="#ebe6d8" />
+    <rect x="286" y="28" width="36" height="264" fill="#3b4de0" opacity=".14" />
+    <g stroke="#8f8c94" stroke-width=".9" opacity=".45" fill="none">
+      <path d="M34 61 H430 M34 127 H430 M34 193 H430 M34 259 H430" />
+    </g>
+    <g stroke="#3b4de0" stroke-width="1.4" fill="none">
+      <path d="M34 28 V292 M106 28 V284 M178 34 V292 M250 28 V292 M322 30 V292 M394 28 V286" />
+    </g>
+    <g stroke="#3b4de0" stroke-width="1.4" opacity=".55" fill="none">
+      <path d="M70 36 V292 M142 28 V288 M214 32 V292 M286 28 V292 M358 34 V292 M430 28 V284" />
+    </g>
+  </svg>
+)}
+{kind === 'nightgrid' && (
+  <svg viewBox="0 0 440 320" role="img" aria-label={label}>
+    <defs>
+      <linearGradient id="g-ng" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#191824" />
+        <stop offset="1" stop-color="#100f16" />
+      </linearGradient>
+    </defs>
+    <rect width="440" height="320" fill="url(#g-ng)" />
+    <g stroke="#34335c" stroke-width="1" opacity=".55" fill="none">
+      <path d="M55 30 V290 M125 30 V290 M195 30 V290 M265 30 V290 M335 30 V290 M405 30 V290" />
+      <path d="M30 70 H410 M30 128 H410 M30 186 H410 M30 244 H410" />
+    </g>
+    <rect x="245" y="108" width="110" height="98" fill="#e3b264" opacity=".1" />
+    <rect x="265" y="128" width="70" height="58" fill="#e3b264" opacity=".92" />
+    <rect x="265" y="128" width="70" height="58" fill="none" stroke="#f4d9a4" stroke-width="1.2" opacity=".8" />
+  </svg>
+)}
+{kind === 'eclipse' && (
+  <svg viewBox="0 0 380 380" role="img" aria-label={label}>
+    <rect width="380" height="380" fill="#111019" />
+    <circle cx="190" cy="184" r="118" fill="#181724" />
+    <circle cx="190" cy="184" r="118" fill="none" stroke="#232236" stroke-width="1.5" />
+    <g fill="none" stroke-linecap="round">
+      <circle cx="190" cy="184" r="126" stroke="#3b4de0" stroke-width="5" stroke-dasharray="240 552" transform="rotate(88 190 184)" />
+      <circle cx="190" cy="184" r="126" stroke="#8d99ff" stroke-width="5" stroke-dasharray="70 722" transform="rotate(112 190 184)" />
+    </g>
+  </svg>
+)}
+{kind === 'veil' && (
+  <svg viewBox="0 0 340 440" role="img" aria-label={label}>
+    <defs>
+      <linearGradient id="g-veil" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#232234" stop-opacity=".9" />
+        <stop offset="1" stop-color="#232234" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="g-veil2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2a2940" stop-opacity=".8" />
+        <stop offset="1" stop-color="#2a2940" stop-opacity=".05" />
+      </linearGradient>
+      <linearGradient id="g-veil-base" x1="0" y1="0" x2="0" y2="1">
+        <stop offset=".55" stop-color="#0e0d14" stop-opacity="0" />
+        <stop offset="1" stop-color="#0c0b12" />
+      </linearGradient>
+    </defs>
+    <rect width="340" height="440" fill="#171622" />
+    <rect x="18" width="70" height="440" fill="url(#g-veil)" />
+    <rect x="98" width="88" height="440" fill="url(#g-veil2)" />
+    <rect x="196" width="60" height="440" fill="url(#g-veil)" />
+    <rect x="188" width="5" height="440" fill="#3b4de0" opacity=".85" />
+    <rect x="266" width="56" height="440" fill="url(#g-veil2)" />
+    <rect width="340" height="440" fill="url(#g-veil-base)" />
+  </svg>
+)}

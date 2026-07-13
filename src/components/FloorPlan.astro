@@ -1,0 +1,62 @@
+---
+/*
+  The floor plan — an SVG architectural plan that doubles as navigation.
+  Each room is a real <a> (keyboard-focusable, works without JS as an
+  anchor jump). JS upgrades it: smooth scroll, current-room highlight,
+  and a "you are here" dot that walks the plan as you scroll the show.
+*/
+---
+<svg class="floor-plan" viewBox="0 0 560 400" role="group"
+  aria-label="Floor plan of the exhibition. Three rooms off a lobby; choose a room to go to its wall of works.">
+
+  <!-- walls: outer shell with the entrance gap, then inner walls with door openings -->
+  <g class="plan-walls" aria-hidden="true">
+    <path d="M305 360 L520 360 L520 30 L40 30 L40 360 L255 360" />
+    <path d="M240 30 V80 M240 115 V310" />
+    <path d="M240 170 H460 M495 170 H520" />
+    <path d="M40 310 H110 M150 310 H400 M440 310 H520" />
+  </g>
+
+  <!-- hanging marks: where the works sit on the walls (decorative) -->
+  <g class="plan-tick" aria-hidden="true">
+    <rect x="70" y="34" width="22" height="4" /><rect x="120" y="34" width="22" height="4" /><rect x="170" y="34" width="22" height="4" />
+    <rect x="44" y="90" width="4" height="22" /><rect x="44" y="150" width="4" height="22" /><rect x="44" y="210" width="4" height="22" />
+    <rect x="290" y="34" width="22" height="4" /><rect x="350" y="34" width="22" height="4" /><rect x="410" y="34" width="22" height="4" /><rect x="470" y="34" width="22" height="4" />
+    <rect x="512" y="70" width="4" height="22" /><rect x="512" y="110" width="4" height="22" />
+    <rect x="290" y="174" width="22" height="4" /><rect x="350" y="174" width="22" height="4" /><rect x="410" y="174" width="22" height="4" />
+    <rect x="512" y="200" width="4" height="22" /><rect x="512" y="250" width="4" height="22" />
+  </g>
+
+  <!-- the rooms: real anchors -->
+  <a href="#room-i" class="plan-room" data-room="room-i" data-dot="140,236"
+    aria-label="Room one, Approach of Evening — go to this wall">
+    <rect class="plan-hit" x="44" y="34" width="192" height="272" />
+    <text class="plan-num" x="140" y="172">I</text>
+    <text class="plan-name" x="140" y="198">approach of evening</text>
+  </a>
+  <a href="#room-ii" class="plan-room" data-room="room-ii" data-dot="320,140"
+    aria-label="Room two, The Blue Hour — go to this wall">
+    <rect class="plan-hit" x="244" y="34" width="272" height="132" />
+    <text class="plan-num" x="380" y="105">II</text>
+    <text class="plan-name" x="380" y="130">the blue hour</text>
+  </a>
+  <a href="#room-iii" class="plan-room" data-room="room-iii" data-dot="320,282"
+    aria-label="Room three, Nocturne — go to this wall">
+    <rect class="plan-hit" x="244" y="174" width="272" height="132" />
+    <text class="plan-num" x="380" y="242">III</text>
+    <text class="plan-name" x="380" y="268">nocturne</text>
+  </a>
+
+  <!-- lobby + entrance -->
+  <text class="plan-lobby" x="280" y="340" aria-hidden="true">lobby</text>
+  <g class="plan-enter" aria-hidden="true">
+    <path d="M280 384 V366 M273 373 L280 366 L287 373" />
+  </g>
+  <text class="plan-lobby" x="280" y="398" aria-hidden="true">you enter here</text>
+
+  <!-- the visitor: follows you through the show -->
+  <g id="planDot" class="plan-dot" style="transform: translate(140px, 236px)" aria-hidden="true">
+    <circle class="dot-ring" r="6" />
+    <circle class="dot-core" r="6" />
+  </g>
+</svg>
