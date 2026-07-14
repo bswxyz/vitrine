@@ -218,7 +218,7 @@ html:not(.js) .hero-copy::before { transform: none; }
 
 .wall { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(1.4rem, 3.5vw, 2.6rem); }
 .work { margin: 0; z-index: 1; }
-.js .work[data-depth] { will-change: transform; }
+.js [data-depth] { will-change: transform; }
 .wall .work:nth-of-type(1) { grid-column: 1 / 4; }
 .wall .work:nth-of-type(2) { grid-column: 4 / 7; margin-top: clamp(3rem, 9vw, 8rem); }
 .wall .work:nth-of-type(3) { grid-column: 2 / 6; margin-top: clamp(2rem, 5vw, 4.5rem); justify-self: center; width: min(100%, 560px); }
@@ -291,10 +291,10 @@ html:not(.js) .hero-copy::before { transform: none; }
 .plan-room:hover .plan-hit { fill: color-mix(in oklab, var(--cobalt) 7%, transparent); }
 .plan-room.is-current .plan-hit { fill: color-mix(in oklab, var(--cobalt) 11%, transparent); stroke: var(--accent); stroke-width: 2; }
 .plan-num { font-family: var(--font-d); font-size: 42px; fill: var(--ink); text-anchor: middle; }
-.plan-name { font-family: var(--font-m); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; fill: var(--faint); text-anchor: middle; }
+.plan-name { font-family: var(--font-m); font-size: 13.5px; letter-spacing: 1.6px; text-transform: uppercase; fill: var(--faint); text-anchor: middle; }
 .plan-room.is-current .plan-name { fill: var(--accent); }
 .plan-tick { fill: var(--faint); opacity: .7; }
-.plan-lobby { font-family: var(--font-m); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; fill: var(--faint); text-anchor: middle; }
+.plan-lobby { font-family: var(--font-m); font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; fill: var(--faint); text-anchor: middle; }
 .plan-enter { stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .plan-dot { transition: transform .9s var(--ease); }
 .dot-core { fill: var(--accent); }
@@ -369,8 +369,8 @@ html:not(.js) .hero-copy::before { transform: none; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-title .line > span { transform: none !important; animation: none !important; }
   .hero-copy::before { transform: none !important; transition: none !important; }
-  .work { transform: none !important; }
-  .js .work[data-depth] { will-change: auto; }
+  .work, .room-wm { transform: none !important; }
+  .js [data-depth] { will-change: auto; }
   .frame, .btn, .plan-item, .plan-dot, .plan-hit, .rail-link { transition: none !important; }
   .dot-ring { animation: none !important; opacity: 0; }
   * { scroll-behavior: auto !important; }

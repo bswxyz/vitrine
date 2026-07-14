@@ -17,9 +17,10 @@ room numerals, timed entry.
 
 The signature is a pair:
 
-1. **Gallery-wall parallax** — every framed work (all inline SVG) carries a `data-depth`;
-   on scroll they drift at different rates, like walking past a hung wall. Positions are
-   measured from `offsetTop` chains so applied transforms never feed back into the next frame.
+1. **Gallery-wall parallax** — every framed work (all inline SVG) and each room's giant
+   numeral carries a `data-depth`; on scroll they drift at different rates, like walking past
+   a hung wall. Positions are measured from `offsetTop` chains so applied transforms never
+   feed back into the next frame.
 2. **A floor plan that is the navigation** — an SVG architectural plan whose rooms are real
    `<a>` anchors. Click a room to go to its wall; an `IntersectionObserver` band across the
    middle of the viewport reports the room you're in, and a visitor dot walks the plan to match.

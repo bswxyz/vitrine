@@ -84,9 +84,10 @@ const description =
     Space Mono for everything a museum sets in small caps: dates, mediums, lenders, room names.</p>
 
   <h2>Signature technique — the wall that walks with you</h2>
-  <p>Each framed work carries a <code>data-depth</code> between −0.06 and +0.09. On scroll, the
-    work is offset by its distance from the viewport's centre times that depth — positive depths
-    drift down as you approach (hung close), negative drift up (hung deep). The trick that keeps
+  <p>Each framed work — and each room's giant watermark numeral, hung deepest of all — carries a
+    <code>data-depth</code> between −0.06 and +0.08. On scroll, the element is offset by its
+    distance from the viewport's centre times that depth — positive depths drift down as you
+    approach (hung close), negative drift up (hung deep). The trick that keeps
     it honest: <strong>measure layout from <code>offsetTop</code>, not
     <code>getBoundingClientRect()</code></strong>. Rects include the transform you just applied,
     which feeds back into the next frame; offset chains never do.</p>

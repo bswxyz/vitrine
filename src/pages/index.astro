@@ -207,7 +207,7 @@ const rooms = [
 
         {rooms.map((room) => (
           <article id={room.id} class="room" aria-labelledby={`${room.id}-h`}>
-            <span class="room-wm" aria-hidden="true">{room.numeral}</span>
+            <span class="room-wm" aria-hidden="true" data-depth="-0.06">{room.numeral}</span>
             <header class="room-head">
               <p class="kicker mono reveal">[ Room {room.numeral} ]</p>
               <h3 id={`${room.id}-h`} class="reveal">{room.name}</h3>
@@ -416,12 +416,13 @@ const rooms = [
 
   /* ============================================================
      Signature 1 — gallery-wall parallax.
-     Each framed work carries a data-depth; as you scroll, works
-     drift at different rates, like walking past a hung wall.
-     Layout positions are measured from offsetTop (transforms
-     never pollute them), so there is no feedback loop.
+     Each framed work — and each room's giant numeral, hung
+     deepest — carries a data-depth; as you scroll they drift at
+     different rates, like walking past a hung wall. Layout
+     positions are measured from offsetTop (transforms never
+     pollute them), so there is no feedback loop.
      ============================================================ */
-  const workEls = Array.from(document.querySelectorAll('.work[data-depth]'));
+  const workEls = Array.from(document.querySelectorAll('[data-depth]'));
   if (workEls.length && !reduce) {
     const works = workEls.map((el) => ({ el, depth: parseFloat(el.dataset.depth) || 0, mid: 0 }));
     const measure = () => {
@@ -497,7 +498,7 @@ const rooms = [
       for (const f of fields) {
         if (!f.checkValidity()) { f.reportValidity(); return; }
       }
-      const date = fields[2].value;
+      const date = /^\d{4}-\d{2}-\d{2}$/.test(fields[2].value) ? fields[2].value : 'your chosen day';
       form.innerHTML =
         '<div class="visit-done"><strong>Held.</strong>' +
         '<span>Your timed entry for ' + date + ' is waiting at the desk. Come at dusk if you can.</span>' +
